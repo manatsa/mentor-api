@@ -1,0 +1,292 @@
+enum Answer {
+    A, B, C, D, E, F
+}
+entity Region {
+    name String
+}
+enum SubjectClass {
+    SCIENCE, ARTS, COMMERCIAL, OTHER
+}
+enum Level {
+    GRADE_1, GRADE_2, GRADE_3, GRADE_4, GRADE_5, GRADE_6 , GRADE_7, FORM_1, FORM_2, FORM_3, FORM_4, FORM_5, FORM_6
+}
+enum Language {
+    ENGLISH, VENECULAR
+}
+enum NewsEventCategory {
+    SOCIAL, EDUCATIONAL, SPORTS
+}
+enum TestType {
+    TEST, EXAM
+}
+entity Country {
+    name String
+}
+entity School {
+    name String required
+    address String required
+    phone String
+    email String
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Student {
+    firstName String required
+    lastName String required
+    idNumber String required
+    address String required
+    dob Instant required
+    phone String required
+    email String
+    level Level required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Teacher{
+    title String required
+	firstName String required
+    lastName String required
+    idNumber String required
+    address String required
+    phone String required
+    email String
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Guardian {
+    title String required
+	firstName String required
+    lastName String required
+    idNumber String required
+    address String required
+    phone String required
+    email String
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Agency {
+    title String required
+	firstName String required
+    lastName String required
+    idNumber String required
+    address String required
+    phone String required
+    email String
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Subject {
+    name String required
+	classfication SubjectClass required,
+	level Level required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Lesson {
+    name String required
+	startDate Instant
+	endDate Instant
+	language Language
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Lecture{
+    name String required
+    content TextBlob required
+    picture ImageBlob
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Example{
+    name String required
+    content TextBlob required
+    picture ImageBlob
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Exercise{
+    name String required
+    description TextBlob
+    explanation TextBlob
+    startDate Instant required
+    dueDate Instant required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity ExerciseQuestion{
+    name String required
+    question String required
+    answer String required
+    explanation TextBlob
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity ExerciseAnswer{
+    answer TextBlob required
+    explanation TextBlob
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity ExerciseMark{
+    total Integer
+    mark Integer
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Exam{
+    name String required
+    description TextBlob
+    completed Boolean
+    startDate Instant required
+    dueDate Instant required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity ExamQuestion {
+    question String required
+    type TestType required
+    answer String required
+    explanation TextBlob
+    level Level required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity ExamAnswer{
+    answer String required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity ExamMark{
+    total Integer
+    mark Integer
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity StudentExams{
+    completed Boolean required
+    finishDate Instant required
+    mark Integer
+    total Integer
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Attachment{
+    name String required
+    contentType String required
+    content Blob required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity News{
+    topic String required
+    content TextBlob required
+    excerpt String required
+    category NewsEventCategory required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Calenda{
+    eventName String required
+    description String
+    category NewsEventCategory required
+    eventStartDate Instant required
+    eventEndDate Instant required
+    location String required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+entity Contact{
+    fullName String required
+    phone String required
+    email String
+    message TextBlob required
+    dateCreated Instant
+    lastModifiedDate Instant
+}
+// relationships
+relationship ManyToMany {
+    Student{subject(id)} to Subject{student(id)}
+    Student{lesson(id)} to Lesson{student(id)}
+    Teacher{subject(id)} to Subject{teacher(id)}
+    Student{exercise(id)} to Exercise{student(id)}
+    Student{exam(id)} to Exam{student(id)}
+}
+relationship ManyToOne {
+    School{country} to Country
+    Student{school} to School
+    Student{region} to Region
+    Student{guardian} to Guardian
+    Student{agency} to Agency
+    Teacher{school} to School
+    Lesson{subject} to Subject
+    Lesson{teacher} to Teacher
+    Example{lesson} to Lesson
+    ExerciseMark{student} to Student
+    ExerciseMark{exercise} to Exercise
+    ExerciseQuestion{exercise} to Exercise
+    ExerciseAnswer{exercise} to Exercise
+    Exercise{lesson} to Lesson
+    ExamMark{student} to Student
+    ExamMark{exam} to Exam
+
+    ExamQuestion{exam} to Exam
+    ExamAnswer{exam} to Exam
+    ExamAnswer{teacher} to Teacher
+    ExamMark{exam} to Exam
+    Exam{subject} to Subject
+    Attachment{lesson} to Lesson
+
+    School{creator} to User
+    School{modifier} to User
+    Student{creator} to User
+    Student{modifier} to User
+    Lesson{creator} to User
+    Lesson{modifier} to User
+    Exam{creator} to User
+    Exam{modifier} to User
+    ExamAnswer{creator} to User
+    ExamMark{creator} to User
+    ExamMark{modifier} to User
+    Example{creator} to User
+    Example{modifier} to User
+    ExamQuestion{creator} to User
+    ExamQuestion{modifier} to User
+    Exercise{creator} to User
+    Exercise{modifier} to User
+    ExerciseAnswer{creator} to User
+    ExerciseAnswer{modifier} to User
+    ExerciseMark{creator} to User
+    ExerciseMark{modifier} to User
+    ExerciseQuestion{creator} to User
+    ExerciseQuestion{modifier} to User
+    Teacher{creator} to User
+    Teacher{modfier} to User
+    Subject{creator} to User
+    Subject{modifier} to User
+    Lecture{creator} to User
+    Lecture{modifier} to User
+    Attachment{creator} to User
+    Attachment{modifier} to User
+    Agency{creator} to User
+    Agency{modifier} to User
+    Guardian{creator} to User
+    Guardian{modifier} to User
+    Country{creator} to User
+    Country{modifier} to User
+    News{creator} to User
+    News{modifier} to User
+    Calenda{creator} to User
+    Calenda{modifer} to User
+    Contact{creator} to User
+    Contact{modifier} to User
+}
+relationship OneToOne {
+    Lecture{lesson} to Lesson
+}
+// Set pagination options
+// paginate * with infinite-scroll
+paginate * with pagination
+// Use Data Transfer Objects (DTO)
+//dto * with mapstruct
+// Set service options to all except few
+service all with serviceImpl

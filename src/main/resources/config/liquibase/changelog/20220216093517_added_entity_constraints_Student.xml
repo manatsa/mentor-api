@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <!--
+        Added the constraints for entity Student.
+    -->
+    <changeSet id="20220216093517-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="school_id"
+                                 baseTableName="student"
+                                 constraintName="fk_student__school_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="school"/>
+
+        <addForeignKeyConstraint baseColumnNames="region_id"
+                                 baseTableName="student"
+                                 constraintName="fk_student__region_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="region"/>
+
+        <addForeignKeyConstraint baseColumnNames="guardian_id"
+                                 baseTableName="student"
+                                 constraintName="fk_student__guardian_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="guardian"/>
+
+        <addForeignKeyConstraint baseColumnNames="agency_id"
+                                 baseTableName="student"
+                                 constraintName="fk_student__agency_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="agency"/>
+
+        <addForeignKeyConstraint baseColumnNames="creator_id"
+                                 baseTableName="student"
+                                 constraintName="fk_student__creator_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="modifier_id"
+                                 baseTableName="student"
+                                 constraintName="fk_student__modifier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="rel_student__subject"
+                                 constraintName="fk_rel_student__subject__student_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"/>
+
+        <addForeignKeyConstraint baseColumnNames="subject_id"
+                                 baseTableName="rel_student__subject"
+                                 constraintName="fk_rel_student__subject__subject_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject"/>
+
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="rel_student__lesson"
+                                 constraintName="fk_rel_student__lesson__student_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"/>
+
+        <addForeignKeyConstraint baseColumnNames="lesson_id"
+                                 baseTableName="rel_student__lesson"
+                                 constraintName="fk_rel_student__lesson__lesson_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lesson"/>
+
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="rel_student__exercise"
+                                 constraintName="fk_rel_student__exercise__student_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"/>
+
+        <addForeignKeyConstraint baseColumnNames="exercise_id"
+                                 baseTableName="rel_student__exercise"
+                                 constraintName="fk_rel_student__exercise__exercise_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exercise"/>
+
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="rel_student__exam"
+                                 constraintName="fk_rel_student__exam__student_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"/>
+
+        <addForeignKeyConstraint baseColumnNames="exam_id"
+                                 baseTableName="rel_student__exam"
+                                 constraintName="fk_rel_student__exam__exam_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exam"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,11 @@
+id;question;type;answer;explanation;level;date_created;last_modified_date
+1;Associate Computer Producer;TEST;Parkways Home COM;../fake-data/blob/hipster.txt;GRADE_6;2022-02-15T12:31:20;2022-02-16T06:22:14
+2;benchmark;EXAM;array;../fake-data/blob/hipster.txt;GRADE_4;2022-02-15T15:01:21;2022-02-15T21:33:25
+3;integrated;EXAM;collaborative Grocery;../fake-data/blob/hipster.txt;GRADE_1;2022-02-15T14:51:59;2022-02-15T15:54:03
+4;Berkshire Hat Hampshire;TEST;Harbors e-tailers New;../fake-data/blob/hipster.txt;FORM_3;2022-02-15T23:20:52;2022-02-15T16:24:11
+5;Congo invoice;TEST;Cambodia Loan;../fake-data/blob/hipster.txt;GRADE_5;2022-02-15T21:09:00;2022-02-16T06:52:00
+6;bricks-and-clicks back-end protocol;TEST;Senior cross-platform;../fake-data/blob/hipster.txt;GRADE_6;2022-02-15T10:58:07;2022-02-15T10:58:37
+7;4th;EXAM;Berkshire;../fake-data/blob/hipster.txt;FORM_5;2022-02-15T13:13:29;2022-02-16T05:17:18
+8;Circles Implementation Bacon;EXAM;Japan Buckinghamshire Internal;../fake-data/blob/hipster.txt;FORM_4;2022-02-16T07:43:03;2022-02-16T02:15:16
+9;Games International;TEST;reinvent Mandatory purple;../fake-data/blob/hipster.txt;GRADE_3;2022-02-15T19:58:35;2022-02-15T23:14:47
+10;e-commerce Baby haptic;TEST;Congo mesh Naira;../fake-data/blob/hipster.txt;GRADE_4;2022-02-15T12:31:40;2022-02-16T08:39:31

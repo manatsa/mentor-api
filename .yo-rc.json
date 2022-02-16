@@ -42,6 +42,33 @@
     "clientThemeVariant": "",
     "withAdminUi": true,
     "enableGradleEnterprise": false,
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "entities": [
+      "Region",
+      "Country",
+      "School",
+      "Student",
+      "Teacher",
+      "Guardian",
+      "Agency",
+      "Subject",
+      "Lesson",
+      "Lecture",
+      "Example",
+      "Exercise",
+      "ExerciseQuestion",
+      "ExerciseAnswer",
+      "ExerciseMark",
+      "Exam",
+      "ExamQuestion",
+      "ExamAnswer",
+      "ExamMark",
+      "StudentExams",
+      "Attachment",
+      "News",
+      "Calenda",
+      "Contact"
+    ],
+    "lastLiquibaseTimestamp": 1645004137000
   }
 }

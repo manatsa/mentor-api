@@ -3,6 +3,7 @@ package com.mana.mentor.web.rest;
 import com.mana.mentor.config.Constants;
 import com.mana.mentor.domain.User;
 import com.mana.mentor.repository.UserRepository;
+import com.mana.mentor.responses.PageResponseVM;
 import com.mana.mentor.security.AuthoritiesConstants;
 import com.mana.mentor.service.MailService;
 import com.mana.mentor.service.UserService;
@@ -165,7 +166,7 @@ public class UserResource {
      */
     @GetMapping("/users")
     @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
-    public ResponseEntity<List<AdminUserDTO>> getAllUsers(Pageable pageable) {
+    public ResponseEntity<PageResponseVM> getAllUsers(Pageable pageable) {
         log.debug("REST request to get all User for an admin");
         if (!onlyContainsAllowedProperties(pageable)) {
             return ResponseEntity.badRequest().build();
@@ -173,7 +174,16 @@ public class UserResource {
 
         final Page<AdminUserDTO> page = userService.getAllManagedUsers(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        PageResponseVM pageResponseVM = new PageResponseVM(
+            page.getContent(),
+            page.getTotalElements(),
+            page.getNumber(),
+            page.getTotalPages()
+        );
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {}
+        return ResponseEntity.ok().headers(headers).body(pageResponseVM);
     }
 
     private boolean onlyContainsAllowedProperties(Pageable pageable) {
