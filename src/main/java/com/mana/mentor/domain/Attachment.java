@@ -1,6 +1,7 @@
 package com.mana.mentor.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.time.Instant;
 import javax.persistence.*;
@@ -28,16 +29,13 @@ public class Attachment implements Serializable {
     private String name;
 
     @NotNull
+    @JsonProperty("contentType")
     @Column(name = "content_type", nullable = false)
     private String contentType;
 
     @Lob
     @Column(name = "content", nullable = false)
     private byte[] content;
-
-    @NotNull
-    @Column(name = "content_content_type", nullable = false)
-    private String contentContentType;
 
     @Column(name = "date_created")
     private Instant dateCreated;
@@ -107,19 +105,6 @@ public class Attachment implements Serializable {
 
     public void setContent(byte[] content) {
         this.content = content;
-    }
-
-    public String getContentContentType() {
-        return this.contentContentType;
-    }
-
-    public Attachment contentContentType(String contentContentType) {
-        this.contentContentType = contentContentType;
-        return this;
-    }
-
-    public void setContentContentType(String contentContentType) {
-        this.contentContentType = contentContentType;
     }
 
     public Instant getDateCreated() {
@@ -214,7 +199,6 @@ public class Attachment implements Serializable {
             ", name='" + getName() + "'" +
             ", contentType='" + getContentType() + "'" +
             ", content='" + getContent() + "'" +
-            ", contentContentType='" + getContentContentType() + "'" +
             ", dateCreated='" + getDateCreated() + "'" +
             ", lastModifiedDate='" + getLastModifiedDate() + "'" +
             "}";

@@ -48,9 +48,6 @@ public class AttachmentServiceImpl implements AttachmentService {
                 if (attachment.getContent() != null) {
                     existingAttachment.setContent(attachment.getContent());
                 }
-                if (attachment.getContentContentType() != null) {
-                    existingAttachment.setContentContentType(attachment.getContentContentType());
-                }
                 if (attachment.getDateCreated() != null) {
                     existingAttachment.setDateCreated(attachment.getDateCreated());
                 }

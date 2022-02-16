@@ -77,7 +77,6 @@ class AttachmentResourceIT {
             .name(DEFAULT_NAME)
             .contentType(DEFAULT_CONTENT_TYPE)
             .content(DEFAULT_CONTENT)
-            .contentContentType(DEFAULT_CONTENT_CONTENT_TYPE)
             .dateCreated(DEFAULT_DATE_CREATED)
             .lastModifiedDate(DEFAULT_LAST_MODIFIED_DATE);
         return attachment;
@@ -94,7 +93,6 @@ class AttachmentResourceIT {
             .name(UPDATED_NAME)
             .contentType(UPDATED_CONTENT_TYPE)
             .content(UPDATED_CONTENT)
-            .contentContentType(UPDATED_CONTENT_CONTENT_TYPE)
             .dateCreated(UPDATED_DATE_CREATED)
             .lastModifiedDate(UPDATED_LAST_MODIFIED_DATE);
         return attachment;
@@ -121,7 +119,6 @@ class AttachmentResourceIT {
         assertThat(testAttachment.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testAttachment.getContentType()).isEqualTo(DEFAULT_CONTENT_TYPE);
         assertThat(testAttachment.getContent()).isEqualTo(DEFAULT_CONTENT);
-        assertThat(testAttachment.getContentContentType()).isEqualTo(DEFAULT_CONTENT_CONTENT_TYPE);
         assertThat(testAttachment.getDateCreated()).isEqualTo(DEFAULT_DATE_CREATED);
         assertThat(testAttachment.getLastModifiedDate()).isEqualTo(DEFAULT_LAST_MODIFIED_DATE);
     }
@@ -241,7 +238,6 @@ class AttachmentResourceIT {
             .name(UPDATED_NAME)
             .contentType(UPDATED_CONTENT_TYPE)
             .content(UPDATED_CONTENT)
-            .contentContentType(UPDATED_CONTENT_CONTENT_TYPE)
             .dateCreated(UPDATED_DATE_CREATED)
             .lastModifiedDate(UPDATED_LAST_MODIFIED_DATE);
 
@@ -260,7 +256,6 @@ class AttachmentResourceIT {
         assertThat(testAttachment.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testAttachment.getContentType()).isEqualTo(UPDATED_CONTENT_TYPE);
         assertThat(testAttachment.getContent()).isEqualTo(UPDATED_CONTENT);
-        assertThat(testAttachment.getContentContentType()).isEqualTo(UPDATED_CONTENT_CONTENT_TYPE);
         assertThat(testAttachment.getDateCreated()).isEqualTo(UPDATED_DATE_CREATED);
         assertThat(testAttachment.getLastModifiedDate()).isEqualTo(UPDATED_LAST_MODIFIED_DATE);
     }
@@ -350,7 +345,6 @@ class AttachmentResourceIT {
         assertThat(testAttachment.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testAttachment.getContentType()).isEqualTo(UPDATED_CONTENT_TYPE);
         assertThat(testAttachment.getContent()).isEqualTo(DEFAULT_CONTENT);
-        assertThat(testAttachment.getContentContentType()).isEqualTo(DEFAULT_CONTENT_CONTENT_TYPE);
         assertThat(testAttachment.getDateCreated()).isEqualTo(UPDATED_DATE_CREATED);
         assertThat(testAttachment.getLastModifiedDate()).isEqualTo(DEFAULT_LAST_MODIFIED_DATE);
     }
@@ -371,7 +365,6 @@ class AttachmentResourceIT {
             .name(UPDATED_NAME)
             .contentType(UPDATED_CONTENT_TYPE)
             .content(UPDATED_CONTENT)
-            .contentContentType(UPDATED_CONTENT_CONTENT_TYPE)
             .dateCreated(UPDATED_DATE_CREATED)
             .lastModifiedDate(UPDATED_LAST_MODIFIED_DATE);
 
@@ -390,7 +383,6 @@ class AttachmentResourceIT {
         assertThat(testAttachment.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testAttachment.getContentType()).isEqualTo(UPDATED_CONTENT_TYPE);
         assertThat(testAttachment.getContent()).isEqualTo(UPDATED_CONTENT);
-        assertThat(testAttachment.getContentContentType()).isEqualTo(UPDATED_CONTENT_CONTENT_TYPE);
         assertThat(testAttachment.getDateCreated()).isEqualTo(UPDATED_DATE_CREATED);
         assertThat(testAttachment.getLastModifiedDate()).isEqualTo(UPDATED_LAST_MODIFIED_DATE);
     }
